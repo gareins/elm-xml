@@ -7,10 +7,10 @@
         "src"
     ],
     "exposed-modules": [
-        "Xml.Encode",
-        "Xml.Decode",
-        "Xml.Query",
-        "Xml"
+        "Xml2.Encode",
+        "Xml2.Decode",
+        "Xml2.Query",
+        "Xml2"
     ],
     "dependencies": {
         "elm-lang/core": "5.0.0 <= v < 6.0.0",

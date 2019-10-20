@@ -1,4 +1,4 @@
-module Xml exposing (Value(..), map, foldl, xmlToJson, jsonToXml)
+module Xml2 exposing (Value(..), map, foldl, xmlToJson, jsonToXml2)
 
 {-|
 
@@ -6,7 +6,7 @@ The main data structure along with some trivial helpers.
 
 @docs Value
 
-@docs foldl, map, xmlToJson, jsonToXml
+@docs foldl, map, xmlToJson, jsonToXml2
 -}
 
 import Dict exposing (Dict)
@@ -61,7 +61,7 @@ foldl fn init value =
             fn anything init
 
 
-{-| Convert an `Xml.Value` to a `Json.Value`
+{-| Convert an `Xml2.Value` to a `Json.Value`
 
     import Dict
     import Json.Encode as Json
@@ -133,28 +133,28 @@ xmlDecoder =
         ]
 
 
-{-| Convert a `Json.Value` into an `Xml.Value`
+{-| Convert a `Json.Value` into an `Xml2.Value`
 
-    jsonToXml (Json.string "hello")
+    jsonToXml2 (Json.string "hello")
     --> StrNode "hello"
 
-    jsonToXml (Json.int 5)
+    jsonToXml2 (Json.int 5)
     --> IntNode 5
 
-    jsonToXml (Json.float 10.5)
+    jsonToXml2 (Json.float 10.5)
     --> FloatNode 10.5
 
-    jsonToXml (Json.bool True)
+    jsonToXml2 (Json.bool True)
     --> BoolNode True
 
-    jsonToXml (Json.object [("name", Json.string "hello")])
+    jsonToXml2 (Json.object [("name", Json.string "hello")])
     --> Object [ Tag "name" Dict.empty (StrNode "hello") ]
 
-    jsonToXml (Json.list [Json.string "name", Json.string "hello"])
+    jsonToXml2 (Json.list [Json.string "name", Json.string "hello"])
     --> Object [ StrNode "name", StrNode "hello" ]
 
 -}
-jsonToXml : Json.Value -> Value
-jsonToXml json =
+jsonToXml2 : Json.Value -> Value
+jsonToXml2 json =
     JD.decodeValue xmlDecoder json
         |> Result.withDefault (Object [])

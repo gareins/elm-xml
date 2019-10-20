@@ -1,7 +1,7 @@
-module Xml.Encode exposing (encode, string, int, float, bool, object, null, list)
+module Xml2.Encode exposing (encode, string, int, float, bool, object, null, list)
 
 {-|
-    Use this module for turning your Elm data into an `Xml` representation that can be either
+    Use this module for turning your Elm data into an `Xml2` representation that can be either
     queried or decoded, or turned into a string.
 
 @docs encode
@@ -11,7 +11,7 @@ module Xml.Encode exposing (encode, string, int, float, bool, object, null, list
 
 import String
 import Dict exposing (Dict)
-import Xml exposing (Value(..))
+import Xml2 exposing (Value(..))
 
 
 propToString : Value -> String
